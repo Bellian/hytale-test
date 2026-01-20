@@ -1,0 +1,7 @@
+# hytale downloader and credentials
+hytale-downloader
+hytale-downloader/*
+
+server.zip
+server
+server/*

@@ -1,0 +1,9 @@
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/bellian/.wget-hsts'. HSTS will be disabled.
+--2026-01-20 17:56:26--  http://127.0.0.1:40729/authorization-callback?code=ory_ac_qciWpnqwiiJf3Tlg4uEXCndoORBoaDYR72p4cqLIhx8.h2BefD8N7IO73dB59HqSVoYpSgaivog6koditZYGmUQ
+Connecting to 127.0.0.1:40729... connected.
+HTTP request sent, awaiting response... No data received.
+Retrying.
+
+--2026-01-20 17:56:27--  (try: 2)  http://127.0.0.1:40729/authorization-callback?code=ory_ac_qciWpnqwiiJf3Tlg4uEXCndoORBoaDYR72p4cqLIhx8.h2BefD8N7IO73dB59HqSVoYpSgaivog6koditZYGmUQ
+Connecting to 127.0.0.1:40729... failed: Connection refused.
