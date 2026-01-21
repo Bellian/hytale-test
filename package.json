@@ -5,11 +5,19 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install && ./scripts/setup.sh",
+    "build": "./gradlew jar && rm vendor/server/Server/mods/app.jar && cp app/build/libs/app.jar vendor/server/Server/mods/app.jar && tmux send-keys -t hytale \"plugin reload Bellian:Test\" C-m && echo 'Build complete!'",
+    "dev": "onchange './app/src/**/*' -- npm run build",
     "dev:server": "cd vendor/server/Server && java -Xmx4G -Xms4G -jar HytaleServer.jar --assets ../Assets.zip",
+    "dev:server:tmux": "tmux new -s hytale 'cd vendor/server/Server && java -Xmx4G -Xms4G -jar HytaleServer.jar --assets ../Assets.zip'",
     "hytale-downloader": "cd vendor/hytale-downloader && ./hytale-downloader-linux-amd64 -download-path ../server.zip",
     "hytale-downloader:version": "cd vendor/hytale-downloader && ./hytale-downloader-linux-amd64 -download-path ../server.zip -print-version",
     "hytale-downloader:update": "cd vendor/hytale-downloader && ./hytale-downloader-linux-amd64 -check-update"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "onchange": "^7.1.0"
+  }
 }

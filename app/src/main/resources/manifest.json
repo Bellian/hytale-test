@@ -1,0 +1,6 @@
+{
+  "Group": "Bellian",
+  "Name": "Test",
+  "Version": "1.0.0",
+  "Main": "de.bellian.hytale.test.App"
+}

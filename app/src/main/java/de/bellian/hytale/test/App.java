@@ -3,12 +3,24 @@
  */
 package de.bellian.hytale.test;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import javax.annotation.Nonnull;
+
+public class App extends JavaPlugin {
+    public App(@Nonnull JavaPluginInit init) {
+        super(init);
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected void setup() {
+        super.setup();
+        this.getCommandRegistry().registerCommand(
+                new HelloCommand("hello", "Shows a hello world title", false));
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println(new App(null));
     }
 }

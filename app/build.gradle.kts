@@ -23,6 +23,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+
+    compileOnly(files("../vendor/server/Server/HytaleServer.jar"))
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
