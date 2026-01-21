@@ -6,5 +6,7 @@
 - persist credentials: `/auth persistence Encrypted`
 
 # for WSL users:
-Download: https://nmap.org/download.html#windows
-The exec `scripts/wsl-port-forwarder.ps` on your host system to forward ports from WSL to Windows using: `powershell -NoProfile -ExecutionPolicy Bypass -File "F:\Downloads\wsl-port-forwarder.ps1"`
+
+You can run the server in the wsl env and connect to it.
+To get the wsl ip use: wsl hostname -I
+Then connect to that ip in the Hytale client.
