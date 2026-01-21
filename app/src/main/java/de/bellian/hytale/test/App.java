@@ -3,19 +3,26 @@
  */
 package de.bellian.hytale.test;
 
+import com.hypixel.hytale.component.ComponentRegistryProxy;
+import com.hypixel.hytale.component.system.ISystem;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+
 import javax.annotation.Nonnull;
 
 public class App extends JavaPlugin {
     public App(@Nonnull JavaPluginInit init) {
         super(init);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     protected void setup() {
         super.setup();
+
+        ComponentRegistryProxy<EntityStore> entityStoreRegistry = getEntityStoreRegistry();
+        entityStoreRegistry.registerSystem((ISystem<EntityStore>)new FixGameTime());
+
         this.getCommandRegistry().registerCommand(
                 new HelloCommand("hello", "Shows a hello world title", false));
     }
