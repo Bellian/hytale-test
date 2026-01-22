@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install && ./scripts/setup.sh",
-    "build": "./gradlew jar && rm vendor/server/Server/mods/app.jar && cp app/build/libs/app.jar vendor/server/Server/mods/app.jar && tmux send-keys -t hytale \"plugin reload Bellian:Test\" C-m && echo 'Build complete!'",
+    "build": "rm -rf vendor/server/Server/mods/*.jar && ./gradlew jar && cp app/build/libs/* vendor/server/Server/mods/ && tmux send-keys -t hytale \"plugin reload Bellian:Test\" C-m && echo 'Build complete!'",
     "dev": "onchange './app/src/**/*' -- npm run build",
     "dev:server": "cd vendor/server/Server && java -Xmx4G -Xms4G -jar HytaleServer.jar --assets ../Assets.zip",
     "dev:server:tmux": "tmux new -s hytale 'cd vendor/server/Server && java -Xmx4G -Xms4G -jar HytaleServer.jar --assets ../Assets.zip'",

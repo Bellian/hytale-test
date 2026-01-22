@@ -9,6 +9,10 @@ import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import de.bellian.hytale.test.commands.HelloCommand;
+import de.bellian.hytale.test.commands.HelloWorldCommand;
+import de.bellian.hytale.test.systems.FixGameTime;
+
 import javax.annotation.Nonnull;
 
 public class App extends JavaPlugin {
@@ -23,8 +27,8 @@ public class App extends JavaPlugin {
         ComponentRegistryProxy<EntityStore> entityStoreRegistry = getEntityStoreRegistry();
         entityStoreRegistry.registerSystem((ISystem<EntityStore>)new FixGameTime());
 
-        this.getCommandRegistry().registerCommand(
-                new HelloCommand("hello", "Shows a hello world title", false));
+        this.getCommandRegistry().registerCommand( new HelloCommand("hello", "Shows a hello world title", false));
+        getCommandRegistry().registerCommand(new HelloWorldCommand());
     }
 
     public static void main(String[] args) {

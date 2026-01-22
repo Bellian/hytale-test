@@ -1,6 +1,7 @@
-package de.bellian.hytale.test;
+package de.bellian.hytale.test.systems;
 
 import java.time.Instant;
+import java.util.logging.Logger;
 
 import javax.annotation.Nonnull;
 
@@ -20,14 +21,14 @@ public class FixGameTime extends TickingSystem<EntityStore> {
 
     public void tick(float dt, int systemIndex, @Nonnull Store<EntityStore> store) {
         this.ticks++;
-        if (ticks < 100) {
+        if (ticks < 1000) {
             if (this.phase == -1) {
                 WorldTimeResource worldTimeResource = (WorldTimeResource) store
                         .getResource(WorldTimeResource.getResourceType());
 
                 World world = ((EntityStore) store.getExternalData()).getWorld();
                 worldTimeResource.setDayTime(0.5, world, store);
-                this.phase = worldTimeResource.getMoonPhase();
+                this.phase = worldTimeResource.getMoonPhase();  
                 this.gameTime = worldTimeResource.getGameTime();
             }
 
@@ -40,5 +41,7 @@ public class FixGameTime extends TickingSystem<EntityStore> {
 
         World world = ((EntityStore) store.getExternalData()).getWorld();
         worldTimeResource.setGameTime(gameTime, world, store);
+        // worldTimeResource.setDayTime(0.5, world, store);
+        Logger.getLogger("FixGameTime").info("Fixed game time to " + gameTime);
     }
 }
